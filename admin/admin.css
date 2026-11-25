@@ -122,6 +122,17 @@ input[type=color] { width: 44px; height: 34px; border: 1px solid var(--line-2); 
 .row .num { font-variant-numeric: tabular-nums; color: var(--muted); text-align: right; }
 .empty { padding: 32px; text-align: center; color: var(--muted); border: 1px dashed var(--line-2); border-radius: 12px; }
 
+/* skill groups */
+.groups { display: flex; flex-direction: column; gap: 14px; }
+.group-card .card-head { gap: 10px; }
+.group-card .card-head input { font-weight: 600; font-size: 1rem; }
+.group-card .acts { display: flex; gap: 4px; flex-shrink: 0; }
+.group-card .acts button { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line-2); }
+.group-card .acts button:hover { border-color: var(--text); }
+.group-card .acts button.del:hover { border-color: var(--danger); color: var(--danger); }
+.group-card .form-grid { grid-template-columns: 1fr; }
+.toggle-row small { margin-left: 6px; }
+
 /* images */
 .img-field { display: flex; gap: 14px; align-items: center; }
 .img-field .thumb { width: 120px; aspect-ratio: 4 / 3; border-radius: 10px; border: 1px dashed var(--line-2); background: var(--bg) center / cover no-repeat; display: grid; place-items: center; color: var(--muted); font-size: .75rem; flex-shrink: 0; }

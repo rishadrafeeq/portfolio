@@ -46,9 +46,14 @@
 
   function normalize(c) {
     c = c && typeof c === "object" ? c : {};
-    c.profile = Object.assign({ name: "", initials: "", roles: [], headline: "", about: "", location: "", available: true, availableText: "", photo: "", aboutPhoto: "", email: "", whatsapp: "", resume: "" }, c.profile);
+    c.profile = Object.assign({ name: "", initials: "", rolesPrefix: "Focused on", roles: [], headline: "", about: "", location: "", available: true, availableText: "", photo: "", aboutPhoto: "", email: "", whatsapp: "", resume: "" }, c.profile);
     ["stats", "socials", "skills", "projects", "experience", "gallery"].forEach((k) => { if (!Array.isArray(c[k])) c[k] = []; });
-    c.settings = Object.assign({ accent: "#c8ff3d", seoTitle: "", seoDescription: "", showSkills: true, showExperience: true, showGallery: true }, c.settings);
+    c.settings = Object.assign({ accent: "#c8ff3d", seoTitle: "", seoDescription: "", showSkills: true, showExperience: true, showGallery: true, showWhatsappButton: true }, c.settings);
+    if (!Array.isArray(c.skillGroups)) {
+      c.skillGroups = c.skills.length ? [{ title: "Skills", note: "", items: c.skills.map((k) => k.name).filter(Boolean) }] : [];
+    }
+    delete c.skills; // replaced by skillGroups
+    c.skillGroups.forEach((g) => { if (!Array.isArray(g.items)) g.items = []; });
     c.projects.forEach((p) => { if (!p.id) p.id = slug(p.title) + "-" + Math.random().toString(36).slice(2, 6); if (!Array.isArray(p.tags)) p.tags = []; });
     return c;
   }
@@ -152,12 +157,6 @@
         <input data-k="suffix" value="${esc(x.suffix)}" placeholder="K+">
         <input data-k="label" value="${esc(x.label)}" placeholder="Label, e.g. Happy clients">`,
     },
-    skills: {
-      blank: () => ({ name: "", level: 75 }),
-      row: (x) => `<input data-k="name" value="${esc(x.name)}" placeholder="Skill name">
-        <input type="range" min="0" max="100" data-k="level" value="${esc(x.level)}">
-        <span class="num">${esc(x.level)}%</span>`,
-    },
     socials: {
       blank: () => ({ label: "", url: "" }),
       row: (x) => `<input data-k="label" value="${esc(x.label)}" placeholder="LinkedIn">
@@ -222,6 +221,42 @@
     const rows = $$(`[data-list="${key}"] .row`);
     rows.at(-1)?.querySelector("input, textarea")?.focus();
   }));
+
+  /* ---------------- skill groups ---------------- */
+  function renderGroups() {
+    const gs = state.c.skillGroups;
+    $("#groupList").innerHTML = gs.length ? gs.map((g, i) => `
+      <div class="card group-card" data-i="${i}">
+        <div class="card-head">
+          <input data-k="title" value="${esc(g.title)}" placeholder="Group title, e.g. Technical skills">
+          <div class="acts">
+            <button type="button" data-act="up" title="Move up">↑</button>
+            <button type="button" data-act="down" title="Move down">↓</button>
+            <button type="button" data-act="del" class="del" title="Delete group">✕</button>
+          </div>
+        </div>
+        <div class="form-grid">
+          <label>Note <small>optional, shown under the title</small><input data-k="note" value="${esc(g.note)}" placeholder="e.g. Relevant knowledge — not professional experience"></label>
+          <label>Skills <small>one per line</small><textarea data-k="items" rows="${Math.max(4, g.items.length + 1)}">${esc(g.items.join("\n"))}</textarea></label>
+        </div>
+      </div>`).join("") : `<div class="empty">No skill groups yet.</div>`;
+  }
+  $("#groupList").addEventListener("input", (e) => {
+    const card = e.target.closest("[data-i]"), k = e.target.dataset.k;
+    if (!card || !k) return;
+    const g = state.c.skillGroups[+card.dataset.i];
+    g[k] = k === "items" ? e.target.value.split("\n").map((x) => x.trim()).filter(Boolean) : e.target.value;
+    changed();
+  });
+  $("#groupList").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-act]"); if (!b) return;
+    moveOrDelete(state.c.skillGroups, +b.closest("[data-i]").dataset.i, b.dataset.act, renderGroups);
+  });
+  $("#addGroup").onclick = () => {
+    state.c.skillGroups.push({ title: "", note: "", items: [] });
+    renderGroups(); changed();
+    $$("#groupList .group-card").at(-1)?.querySelector("input")?.focus();
+  };
 
   /* ---------------- projects ---------------- */
   function renderProjects() {
@@ -363,7 +398,7 @@
     const k = [
       [c.projects.length, "Projects", "projects"],
       [c.projects.filter((p) => p.featured).length, "Featured case studies", "projects"],
-      [c.skills.length, "Skills", "skills"],
+      [c.skillGroups.reduce((n, g) => n + g.items.length, 0), "Skills listed", "skills"],
       [c.gallery.length, "Gallery photos", "gallery"],
     ];
     $("#kpis").innerHTML = k.map(([n, l, t]) => `<div class="kpi" data-go="${t}"><b>${n}</b><span>${l}</span></div>`).join("");
@@ -541,7 +576,7 @@
     bindFields();
     $$("main [data-image]").forEach(renderImageField);
     Object.keys(LISTS).forEach(renderList);
-    renderProjects(); renderGallery(); renderSwatches(); renderDashboard(); fillGhForm();
+    renderProjects(); renderGallery(); renderGroups(); renderSwatches(); renderDashboard(); fillGhForm();
   }
 
   async function init() {

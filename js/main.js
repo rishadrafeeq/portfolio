@@ -11,8 +11,22 @@
 
   const ICONS = {
     instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
+    whatsapp: '<svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.83 9.83 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Z"/></svg>',
     youtube: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9L15.5 12l-5.8 3.1Z"/></svg>',
   };
+
+  // Skill groups (new format), with fallback for the old flat "skills" list.
+  function skillGroups(c) {
+    if (Array.isArray(c.skillGroups) && c.skillGroups.length) return c.skillGroups.filter((g) => g.title || g.items?.length);
+    if (Array.isArray(c.skills) && c.skills.length) return [{ title: "Skills", note: "", items: c.skills.map((k) => k.name) }];
+    return [];
+  }
+  // Multi-line text -> bullet list; single line -> paragraph.
+  function lines(text) {
+    const ls = String(text || "").split("\n").map((l) => l.trim()).filter(Boolean);
+    if (ls.length < 2) return `<p>${esc(ls[0] || "")}</p>`;
+    return `<ul class="bullets">${ls.map((l) => `<li>${esc(l)}</li>`).join("")}</ul>`;
+  }
 
   async function loadContent() {
     const params = new URLSearchParams(location.search);
@@ -55,7 +69,8 @@
     $("#aboutPhoto").innerHTML = photo(p.aboutPhoto || p.photo, p.name);
 
     // marquee
-    const words = [...new Set([...(c.skills || []).map((k) => k.name), ...(c.projects || []).flatMap((x) => x.tags || [])])].slice(0, 14);
+    const groups = skillGroups(c);
+    const words = [...new Set([...groups.flatMap((g) => g.items || []), ...(c.projects || []).flatMap((x) => x.tags || [])])].slice(0, 16);
     const mq = words.map((w) => `<span>${esc(w)}</span>`).join("");
     $("#marquee").innerHTML = mq; $("#marquee2").innerHTML = mq;
 
@@ -134,10 +149,15 @@
     $("#stats").style.display = c.stats?.length ? "" : "none";
 
     // skills
-    $("#skills").style.display = s.showSkills === false || !c.skills?.length ? "none" : "";
-    $("#skillList").innerHTML = (c.skills || []).map((k) => `
-      <div class="skill reveal"><div class="skill-top"><span>${esc(k.name)}</span><span>${Number(k.level) || 0}%</span></div>
-      <div class="skill-bar"><i data-w="${Math.min(100, Number(k.level) || 0)}"></i></div></div>`).join("");
+    $("#skills").style.display = s.showSkills === false || !groups.length ? "none" : "";
+    $("#skillList").className = "skill-groups";
+    $("#skillList").innerHTML = groups.map((g, i) => `
+      <div class="skill-group reveal">
+        <span class="sg-num">${String(i + 1).padStart(2, "0")}</span>
+        <h3>${esc(g.title)}</h3>
+        ${g.note ? `<p class="sg-note">${esc(g.note)}</p>` : ""}
+        <ul>${(g.items || []).map((it) => `<li>${esc(it)}</li>`).join("")}</ul>
+      </div>`).join("");
 
     // experience
     const showExp = s.showExperience !== false && c.experience?.length;
@@ -145,7 +165,7 @@
     $$('[data-section="experience"]').forEach((a) => (a.style.display = showExp ? "" : "none"));
     $("#expList").innerHTML = (c.experience || []).map((x) => `
       <div class="exp-row reveal"><span class="period">${esc(x.period)}</span>
-      <h4>${esc(x.title)}<small>${esc(x.org)}</small></h4><p>${esc(x.description)}</p></div>`).join("");
+      <h4>${esc(x.title)}<small>${esc(x.org)}</small></h4>${lines(x.description)}</div>`).join("");
 
     // gallery
     const gal = (c.gallery || []).filter((g) => g.src);
@@ -154,16 +174,28 @@
       <figure class="reveal"><img src="${esc(safeUrl(g.src))}" alt="${esc(g.caption || "")}" loading="lazy">${g.caption ? `<figcaption>${esc(g.caption)}</figcaption>` : ""}</figure>`).join("");
 
     // contact
+    const waNum = String(p.whatsapp || "").replace(/\D/g, "");
+    const wa = waNum ? `https://wa.me/${waNum}` : "";
     const li = (c.socials || []).find((x) => /linkedin/i.test(x.label));
-    const primary = p.email ? `mailto:${p.email}` : p.whatsapp ? `https://wa.me/${String(p.whatsapp).replace(/\D/g, "")}` : li?.url || "#";
-    $("#contactBtn").href = safeUrl(primary);
-    if (!primary.startsWith("mailto")) $("#contactBtn").target = "_blank";
+    const primary = wa || (p.email ? `mailto:${p.email}` : li?.url || "#");
+    const cb = $("#contactBtn");
+    cb.href = safeUrl(primary);
+    if (!primary.startsWith("mailto")) { cb.target = "_blank"; cb.rel = "noopener"; }
+    cb.innerHTML = wa ? `${ICONS.whatsapp}<span>Chat on<br>WhatsApp</span>` : "Start a<br>project ↗";
+    if (wa) {
+      const hw = $("#heroWa");
+      hw.href = wa; hw.target = "_blank"; hw.rel = "noopener";
+      hw.innerHTML = `${ICONS.whatsapp} WhatsApp me`;
+      const fl = $("#waFloat");
+      fl.href = wa; fl.innerHTML = ICONS.whatsapp + "<span>Chat on WhatsApp</span>";
+      fl.hidden = s.showWhatsappButton === false;
+    }
     $("#contactActions").innerHTML = [
+      wa && `<a class="btn btn-ghost" href="${esc(wa)}" target="_blank" rel="noopener">${ICONS.whatsapp} ${esc(p.whatsapp)}</a>`,
       p.email && `<a class="btn btn-ghost" href="mailto:${esc(p.email)}">${esc(p.email)}</a>`,
-      p.whatsapp && `<a class="btn btn-ghost" href="https://wa.me/${esc(String(p.whatsapp).replace(/\D/g, ""))}" target="_blank" rel="noopener">WhatsApp</a>`,
       p.resume && `<a class="btn btn-ghost" href="${esc(safeUrl(p.resume))}" target="_blank" rel="noopener">Download résumé</a>`,
     ].filter(Boolean).join("");
-    $("#socials").innerHTML = (c.socials || []).filter((x) => x.url).map((x) =>
+    $("#socials").innerHTML = (c.socials || []).filter((x) => x.url && !(wa && /wa\.me|whatsapp/i.test(x.url))).map((x) =>
       `<a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">${esc(x.label)} ↗</a>`).join("");
 
     $("#year").textContent = new Date().getFullYear();

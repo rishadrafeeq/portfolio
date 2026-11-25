@@ -2,37 +2,51 @@
   "profile": {
     "name": "Rishad Rafeeq",
     "initials": "RR",
-    "roles": ["Full-Stack Web Developer", "Founder of VFUTURES", "Digital Marketer"],
-    "headline": "I design and build fast, modern websites that grow businesses.",
-    "about": "I'm a full-stack web developer who builds fast, modern websites and web apps — from enterprise company sites and business-setup portals in the UAE to e-commerce stores with complete admin panels. I also run my own product, VFUTURES, a trading community and platform with a YouTube channel, and I help brands grow through Instagram lead generation.",
-    "location": "India · UAE",
+    "rolesPrefix": "Focused on",
+    "roles": [
+      "React.js & frontend development",
+      "financial markets & fintech",
+      "leading activities at VFUTURES & Enroute UAE"
+    ],
+    "headline": "Software developer with hands-on React.js experience and a working knowledge of financial markets.",
+    "about": "I'm a software developer focused on React.js and frontend development. As a Software Developer Intern at UNICO International (July – December 2025), I worked on the company's website, building responsive React.js pages and components. I have a working knowledge of financial markets, trading fundamentals and fintech concepts, and I currently manage and lead activities across VFUTURES and Enroute UAE, coordinating operations, social media and lead generation.",
+    "location": "India",
     "available": true,
-    "availableText": "Available for freelance projects",
+    "availableText": "Open to software development roles",
     "photo": "",
     "aboutPhoto": "",
     "email": "",
-    "whatsapp": "",
+    "whatsapp": "+91 755 906 8840",
     "resume": ""
   },
   "stats": [
-    { "value": 4, "suffix": "+", "label": "Live websites" },
-    { "value": 10, "suffix": "K+", "label": "Community reach" },
-    { "value": 2, "suffix": "", "label": "Company projects" }
+    { "value": 6, "suffix": " mo", "label": "Software developer internship" },
+    { "value": 4, "suffix": "+", "label": "Live websites built" },
+    { "value": 2, "suffix": "", "label": "Ventures I help lead" }
   ],
   "socials": [
+    { "label": "WhatsApp", "url": "https://wa.me/917559068840" },
     { "label": "LinkedIn", "url": "https://www.linkedin.com/in/rishadrafeeq/" },
     { "label": "GitHub", "url": "https://github.com/rishadrafeeq" },
     { "label": "Instagram", "url": "https://www.instagram.com/rishadrafeeq" },
-    { "label": "Facebook", "url": "https://www.facebook.com/p/rishadrafeeq" },
-    { "label": "YouTube", "url": "https://youtube.com/@vfutures" }
+    { "label": "Facebook", "url": "https://www.facebook.com/p/rishadrafeeq" }
   ],
-  "skills": [
-    { "name": "HTML, CSS & Tailwind", "level": 92 },
-    { "name": "JavaScript / TypeScript", "level": 88 },
-    { "name": "React / Next.js", "level": 85 },
-    { "name": "Node.js & APIs", "level": 78 },
-    { "name": "Admin Panels & Dashboards", "level": 80 },
-    { "name": "Instagram Marketing & Lead Gen", "level": 82 }
+  "skillGroups": [
+    {
+      "title": "Technical skills",
+      "note": "",
+      "items": ["React.js", "JavaScript", "HTML & CSS", "SQL / MySQL", "Python", "Linux", "Git & GitHub", "Debugging & technical support"]
+    },
+    {
+      "title": "Financial market knowledge",
+      "note": "Relevant knowledge — not professional trading or financial-analyst experience.",
+      "items": ["Financial markets", "Trading fundamentals", "Forex & cryptocurrency markets", "Market structure", "Order flow fundamentals", "FIX Protocol (basic understanding)"]
+    },
+    {
+      "title": "Leadership & operations",
+      "note": "From managing and leading activities at VFUTURES and Enroute UAE.",
+      "items": ["Team & activity coordination", "Operations management", "Social media & community", "Lead generation"]
+    }
   ],
   "projects": [
     {
@@ -40,10 +54,10 @@
       "title": "UNICO International",
       "category": "Company",
       "featured": true,
-      "client": "UNICO International Pvt Ltd",
-      "role": "Full-stack development · UI design",
-      "description": "Corporate website for an enterprise solutions company covering software development, AI consulting, data analytics, interior design and portfolio management — with event announcements and a careers section.",
-      "tags": ["Next.js", "Tailwind CSS", "Corporate", "Responsive"],
+      "client": "UNICO International · Software Developer Internship",
+      "role": "Software Developer Intern — React.js frontend",
+      "description": "Company website for an enterprise solutions provider (software development, AI consulting, data analytics and interior design). During my internship I worked on the website's frontend in React.js, building responsive pages and reusable components.",
+      "tags": ["React.js", "Next.js", "Tailwind CSS", "Responsive UI"],
       "image": "images/projects/unico.jpg",
       "live": "https://unico-international.com/",
       "github": ""
@@ -54,22 +68,22 @@
       "category": "Company",
       "featured": true,
       "client": "Global Vision Business Hub, Dubai",
-      "role": "Web development · Lead generation",
-      "description": "Business-setup portal for Dubai: mainland, freezone and offshore company formation, visa and PRO services, with lead-capture forms, call-back requests and WhatsApp integration.",
-      "tags": ["Business Website", "Lead Gen", "SEO", "UAE"],
+      "role": "Web development",
+      "description": "Business-setup website for Dubai covering mainland, freezone and offshore company formation and visa services, with lead-capture forms, call-back requests and WhatsApp integration.",
+      "tags": ["Business website", "Lead capture", "WhatsApp integration"],
       "image": "images/projects/globalvision.jpg",
       "live": "https://globalvisionuae.com/",
       "github": ""
     },
     {
       "id": "vfutures",
-      "title": "VFUTURES",
-      "category": "My Product",
+      "title": "VFUTURES Web Platform",
+      "category": "Web App",
       "featured": false,
       "client": "",
-      "role": "Founder · Full-stack",
-      "description": "My own trading platform and community — trading journal, signals hub, academy, live market prices and live streams for 10K+ traders.",
-      "tags": ["Web App", "Next.js", "Vercel"],
+      "role": "Developer",
+      "description": "Trading-community web platform I built for VFUTURES: trading journal, signals hub, learning academy and live market prices.",
+      "tags": ["Web App", "React", "Vercel", "Fintech"],
       "image": "images/projects/vfutures.jpg",
       "live": "https://vfutures.vercel.app/",
       "github": "https://github.com/rishadrafeeq/vfutures"
@@ -81,7 +95,7 @@
       "featured": false,
       "client": "",
       "role": "Full-stack · Admin panel",
-      "description": "E-commerce store for a menswear brand with a full admin panel for products and categories, plus WhatsApp ordering.",
+      "description": "E-commerce store for a menswear brand with an admin panel for products and categories, plus WhatsApp ordering.",
       "tags": ["E-commerce", "Admin Panel", "Vercel"],
       "image": "images/projects/giesto.jpg",
       "live": "https://giesto.vercel.app/",
@@ -90,12 +104,12 @@
     {
       "id": "vfutures-ig",
       "title": "VFUTURES Trade",
-      "category": "Social",
+      "category": "Operations",
       "featured": false,
       "client": "",
-      "role": "Content & growth",
-      "description": "Instagram brand for VFUTURES — trading content, signals and community growth.",
-      "tags": ["Instagram", "Content"],
+      "role": "Social media operations",
+      "description": "Instagram page for VFUTURES: trading education content and community updates.",
+      "tags": ["Instagram", "Community"],
       "image": "",
       "live": "https://www.instagram.com/vfutures_trade",
       "github": ""
@@ -103,7 +117,7 @@
     {
       "id": "enroute",
       "title": "Enroute UAE — Visa Leads",
-      "category": "Social",
+      "category": "Operations",
       "featured": false,
       "client": "",
       "role": "Lead generation",
@@ -116,29 +130,45 @@
     {
       "id": "vfutures-yt",
       "title": "VFUTURES on YouTube",
-      "category": "Social",
+      "category": "Operations",
       "featured": false,
       "client": "",
-      "role": "Creator",
+      "role": "Channel operations",
       "description": "YouTube channel with live trading sessions and market breakdowns.",
-      "tags": ["YouTube", "Live"],
+      "tags": ["YouTube", "Content"],
       "image": "",
       "live": "https://youtube.com/@vfutures",
       "github": ""
     }
   ],
   "experience": [
-    { "period": "Present", "title": "Web Developer", "org": "UNICO International", "description": "Building the company website and digital solutions." },
-    { "period": "Present", "title": "Founder", "org": "VFUTURES", "description": "Built and run a trading platform, Instagram brand and YouTube channel." },
-    { "period": "Freelance", "title": "Web Developer", "org": "Client projects", "description": "Global Vision UAE, GIESTO e-commerce with admin panel, and Instagram lead generation." }
+    {
+      "period": "Ongoing",
+      "title": "Leadership & operations",
+      "org": "VFUTURES & Enroute UAE",
+      "description": "Manage and lead day-to-day activities across both ventures\nCoordinate operations, social media and lead-generation work\nBuilt and maintain the VFUTURES web platform"
+    },
+    {
+      "period": "Jul 2025 — Dec 2025",
+      "title": "Software Developer Intern",
+      "org": "UNICO International",
+      "description": "Worked on the company website (unico-international.com)\nBuilt responsive pages and reusable components in React.js\nFrontend development across the site"
+    },
+    {
+      "period": "Independent",
+      "title": "Web projects",
+      "org": "Client & personal work",
+      "description": "Global Vision UAE business-setup website\nGIESTO e-commerce store with an admin panel"
+    }
   ],
   "gallery": [],
   "settings": {
     "accent": "#c8ff3d",
-    "seoTitle": "Rishad Rafeeq — Full-Stack Web Developer",
-    "seoDescription": "Portfolio of Rishad Rafeeq: company websites, web apps and e-commerce projects.",
+    "seoTitle": "Rishad Rafeeq — Software Developer (React.js)",
+    "seoDescription": "Portfolio of Rishad Rafeeq: software developer with React.js experience, financial-markets knowledge, and operations leadership at VFUTURES and Enroute UAE.",
     "showSkills": true,
     "showExperience": true,
-    "showGallery": true
+    "showGallery": true,
+    "showWhatsappButton": true
   }
 }

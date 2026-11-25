@@ -1,6 +1,7 @@
 # Rishad Rafeeq — Developer Portfolio
 
 A fast, animated personal portfolio with a **built-in admin panel**, so I can add projects, photos and skills without touching code.
+It presents my software development work (React.js / frontend), my financial-markets knowledge, and my leadership & operations work at VFUTURES and Enroute UAE.
 Changes made in the admin panel are committed straight to this GitHub repo, and Vercel redeploys the site automatically.
 
 ![Portfolio home](docs/screenshots/home.jpg)
@@ -10,7 +11,9 @@ Changes made in the admin panel are committed straight to this GitHub repo, and 
 **Portfolio site**
 - Premium dark design with a single accent colour (changeable from the admin panel)
 - Featured **company case studies** in browser-style frames, plus a filterable project grid
-- Smooth animations: intro loader, line-by-line text reveals, scroll reveals, word-by-word "about" highlight, typing roles, animated counters and skill bars
+- Skills grouped into cards (technical, financial-market knowledge, leadership & operations), each with an optional honesty note
+- Direct WhatsApp contact: hero button, contact button and a floating chat button (`wa.me` link)
+- Smooth animations: intro loader, line-by-line text reveals, scroll reveals, word-by-word "about" highlight, typing focus areas, animated counters
 - Interactive touches: custom cursor, magnetic buttons, spotlight hover on cards, image lightbox
 - Fully responsive (desktop, tablet, mobile) and respects `prefers-reduced-motion`
 - SEO title/description, Open Graph tags, `robots.txt`
@@ -19,9 +22,9 @@ Changes made in the admin panel are committed straight to this GitHub repo, and 
 - Dashboard with counts and quick actions
 - **Projects:** add, edit, delete, reorder, mark as *featured*, search and filter, upload a screenshot
 - **Profile:** name, headline, typing roles, about text, photos, location, email, WhatsApp, résumé link, stats
-- **Skills, experience, social links:** add/edit/reorder/delete
+- **Skill groups, experience (multi-line bullets), social links:** add/edit/reorder/delete
 - **Gallery:** multi-photo upload (auto-resized in the browser) with captions
-- **Settings:** accent colour, show/hide sections, SEO
+- **Settings:** accent colour, show/hide sections, floating WhatsApp button, SEO
 - Changes auto-save in the browser as a draft, with **Preview** on the real design before publishing
 - **Publish** saves everything to GitHub as a single commit (content + images), then Vercel deploys
 - Backup: download/import `content.json`

@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rishad Rafeeq — Full-Stack Web Developer</title>
-  <meta name="description" content="Portfolio of Rishad Rafeeq: company websites, web apps and e-commerce projects.">
-  <meta property="og:title" content="Rishad Rafeeq — Full-Stack Web Developer">
+  <title>Rishad Rafeeq — Software Developer (React.js)</title>
+  <meta name="description" content="Portfolio of Rishad Rafeeq: software developer with React.js experience, financial-markets knowledge and operations leadership.">
+  <meta property="og:title" content="Rishad Rafeeq — Software Developer (React.js)">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/projects/unico.jpg">
   <meta name="theme-color" content="#0a0a0b">
@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
   <div id="loader"><span><i data-initial-1>R</i><i data-initial-2>R</i></span></div>
@@ -43,11 +43,11 @@
           <span class="badge" id="availBadge"><span class="dot"></span><span data-bind="availableText">Available for freelance projects</span></span>
           <h1 id="heroName"><span class="line"><span>Rishad</span></span><span class="line"><span class="serif accent">Rafeeq</span></span></h1>
           <div class="hero-sub">
-            <p><strong data-bind="headline"></strong><br>Currently working as a <span class="role" id="role"></span></p>
+            <p><strong data-bind="headline"></strong><br><span data-bind="rolesPrefix">Focused on</span> <span class="role" id="role"></span></p>
           </div>
           <div class="hero-actions">
             <a href="#work" class="btn btn-primary">View my work <span class="arrow">↗</span></a>
-            <a href="#contact" class="btn btn-ghost">Get in touch</a>
+            <a href="#contact" class="btn btn-ghost wa-link" id="heroWa">Get in touch</a>
           </div>
         </div>
         <div class="hero-photo" id="heroPhoto"></div>
@@ -104,9 +104,9 @@
         <div class="sec-head">
           <div>
             <div class="eyebrow">Expertise</div>
-            <h2 class="sec-title split"><span class="line"><span>What I <span class="serif">do</span></span></span></h2>
+            <h2 class="sec-title split"><span class="line"><span>Skills &amp; <span class="serif">knowledge</span></span></span></h2>
           </div>
-          <p class="reveal">The tools and skills I use to ship real projects.</p>
+          <p class="reveal">Software development, financial-market knowledge and hands-on operations leadership.</p>
         </div>
         <div class="skills" id="skillList"></div>
       </div>
@@ -158,6 +158,7 @@
   </footer>
 
   <div class="lightbox" id="lightbox"><img alt=""></div>
-  <script src="js/main.js?v=2"></script>
+  <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" hidden></a>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>

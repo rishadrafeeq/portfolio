@@ -7,7 +7,7 @@
   <title>Portfolio Admin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="admin.css?v=2">
+  <link rel="stylesheet" href="admin.css?v=3">
 </head>
 <body>
   <div class="app">
@@ -89,7 +89,8 @@
               <label>Full name<input data-path="profile.name"></label>
               <label>Initials (logo)<input data-path="profile.initials" maxlength="3"></label>
               <label class="full">Headline<input data-path="profile.headline"></label>
-              <label class="full">Roles <small>one per line — they type out in the hero</small><textarea data-path="profile.roles" data-type="lines" rows="3"></textarea></label>
+              <label class="full">Text before the typing roles <small>e.g. “Focused on”. Avoid “Currently working as” unless you are employed.</small><input data-path="profile.rolesPrefix"></label>
+              <label class="full">Roles / focus areas <small>one per line — they type out in the hero</small><textarea data-path="profile.roles" data-type="lines" rows="3"></textarea></label>
               <label class="full">About me<textarea data-path="profile.about" rows="6"></textarea></label>
               <label>Location<input data-path="profile.location"></label>
               <label class="toggle-row">Show "available" badge<input type="checkbox" data-path="profile.available"><span class="switch"></span></label>
@@ -125,8 +126,8 @@
 
         <!-- SKILLS -->
         <section data-panel="skills" class="panel">
-          <div class="panel-head"><div><h1>Skills</h1><p>Shown as animated bars.</p></div><button class="btn primary" data-add="skills">＋ Add skill</button></div>
-          <div class="card"><div class="rows" data-list="skills"></div></div>
+          <div class="panel-head"><div><h1>Skills &amp; knowledge</h1><p>Each group is shown as a card. Use the note to set expectations honestly (e.g. “basic understanding”).</p></div><button class="btn primary" id="addGroup">＋ Add group</button></div>
+          <div class="groups" id="groupList"></div>
         </section>
 
         <!-- EXPERIENCE -->
@@ -161,6 +162,7 @@
             <label class="toggle-row">Show Skills<input type="checkbox" data-path="settings.showSkills"><span class="switch"></span></label>
             <label class="toggle-row">Show Experience<input type="checkbox" data-path="settings.showExperience"><span class="switch"></span></label>
             <label class="toggle-row">Show Gallery<input type="checkbox" data-path="settings.showGallery"><span class="switch"></span></label>
+            <label class="toggle-row">Floating WhatsApp button <small>uses the number in Profile → Contact</small><input type="checkbox" data-path="settings.showWhatsappButton"><span class="switch"></span></label>
           </div>
           <div class="card">
             <h3>SEO (Google & link previews)</h3>
@@ -236,6 +238,6 @@
   </aside>
 
   <div class="toasts" id="toasts"></div>
-  <script src="admin.js?v=2"></script>
+  <script src="admin.js?v=3"></script>
 </body>
 </html>
