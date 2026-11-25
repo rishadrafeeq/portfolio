@@ -192,10 +192,10 @@
         </div>
       </a>`;
     };
-    $("#xpFreelance").style.display = freelance.length ? "" : "none";
-    $("#freelanceList").innerHTML = freelance.map(mini).join("");
-    $("#xpPersonal").style.display = personal.length ? "" : "none";
-    $("#personalList").innerHTML = personal.map(mini).join("");
+    // Freelance work and personal projects are shown together as one entry.
+    const combined = [...freelance, ...personal];
+    $("#xpProjects").style.display = combined.length ? "" : "none";
+    $("#projectList").innerHTML = combined.map(mini).join("");
 
     // gallery
     const gal = (c.gallery || []).filter((g) => g.src);
