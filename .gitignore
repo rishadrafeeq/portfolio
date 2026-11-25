@@ -1,0 +1,20 @@
+# Secrets & environment files (never commit these)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependencies / build output (if tooling is added later)
+node_modules/
+dist/
+.vercel/
+
+# Editor & OS files
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rishad Rafeeq — Full-Stack Web Developer</title>
+  <meta name="description" content="Portfolio of Rishad Rafeeq: company websites, web apps and e-commerce projects.">
+  <meta property="og:title" content="Rishad Rafeeq — Full-Stack Web Developer">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/projects/unico.jpg">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23c8ff3d'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='%230a0a0b'%3ERR%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body>
+  <div id="loader"><span><i data-initial-1>R</i><i data-initial-2>R</i></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container">
+      <a href="#top" class="logo"><b data-bind="initials">RR</b><span data-bind="name">Rishad Rafeeq</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span></button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#experience" data-section="experience">Experience</a>
+        <a href="#contact" class="cta">Let's talk</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"><div class="grid"></div><div class="glow" id="glow"></div></div>
+      <div class="container hero-inner">
+        <div>
+          <span class="badge" id="availBadge"><span class="dot"></span><span data-bind="availableText">Available for freelance projects</span></span>
+          <h1 id="heroName"><span class="line"><span>Rishad</span></span><span class="line"><span class="serif accent">Rafeeq</span></span></h1>
+          <div class="hero-sub">
+            <p><strong data-bind="headline"></strong><br>Currently working as a <span class="role" id="role"></span></p>
+          </div>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">View my work <span class="arrow">↗</span></a>
+            <a href="#contact" class="btn btn-ghost">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero-photo" id="heroPhoto"></div>
+      </div>
+      <div class="scroll-cue">Scroll</div>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div><div class="marquee-track" id="marquee2"></div></div>
+
+    <!-- FEATURED COMPANY WORK -->
+    <section id="work">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow">Selected work</div>
+            <h2 class="sec-title split"><span class="line"><span>Company</span></span><span class="line"><span><span class="serif">projects</span></span></span></h2>
+          </div>
+          <p class="reveal">Production websites I designed and developed end-to-end for real businesses.</p>
+        </div>
+        <div class="cases" id="cases"></div>
+      </div>
+    </section>
+
+    <!-- ALL PROJECTS -->
+    <section id="projects" style="padding-top:0">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow">More work</div>
+            <h2 class="sec-title split"><span class="line"><span>Products &amp;</span></span><span class="line"><span><span class="serif">experiments</span></span></span></h2>
+          </div>
+        </div>
+        <div class="filters reveal" id="filters"></div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" style="background:var(--surface)">
+      <div class="container about-grid">
+        <div class="about-photo reveal" id="aboutPhoto"></div>
+        <div>
+          <div class="eyebrow">About me</div>
+          <p class="about-text" id="aboutText"></p>
+          <div class="about-meta" id="aboutMeta"></div>
+          <div class="stats reveal" id="stats"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow">Expertise</div>
+            <h2 class="sec-title split"><span class="line"><span>What I <span class="serif">do</span></span></span></h2>
+          </div>
+          <p class="reveal">The tools and skills I use to ship real projects.</p>
+        </div>
+        <div class="skills" id="skillList"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" style="padding-top:0">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow">Journey</div>
+            <h2 class="sec-title split"><span class="line"><span>Experience</span></span></h2>
+          </div>
+        </div>
+        <div class="exp" id="expList"></div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" style="padding-top:0">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow">Gallery</div>
+            <h2 class="sec-title split"><span class="line"><span>Behind the <span class="serif">scenes</span></span></span></h2>
+          </div>
+        </div>
+        <div class="gallery" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" style="background:var(--surface)">
+      <div class="container">
+        <div class="eyebrow">Contact</div>
+        <h2 class="split"><span class="line"><span>Let's work</span></span><span class="line"><span class="serif">together</span></span></h2>
+        <a class="big-btn magnetic" id="contactBtn" href="#">Start a<br>project ↗</a>
+        <div class="contact-actions" id="contactActions"></div>
+        <div class="socials" id="socials"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> <span data-bind="name">Rishad Rafeeq</span>. All rights reserved.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox"><img alt=""></div>
+  <script src="js/main.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+{
+  "profile": {
+    "name": "Rishad Rafeeq",
+    "initials": "RR",
+    "roles": ["Full-Stack Web Developer", "Founder of VFUTURES", "Digital Marketer"],
+    "headline": "I design and build fast, modern websites that grow businesses.",
+    "about": "I'm a full-stack web developer who builds fast, modern websites and web apps — from enterprise company sites and business-setup portals in the UAE to e-commerce stores with complete admin panels. I also run my own product, VFUTURES, a trading community and platform with a YouTube channel, and I help brands grow through Instagram lead generation.",
+    "location": "India · UAE",
+    "available": true,
+    "availableText": "Available for freelance projects",
+    "photo": "",
+    "aboutPhoto": "",
+    "email": "",
+    "whatsapp": "",
+    "resume": ""
+  },
+  "stats": [
+    { "value": 4, "suffix": "+", "label": "Live websites" },
+    { "value": 10, "suffix": "K+", "label": "Community reach" },
+    { "value": 2, "suffix": "", "label": "Company projects" }
+  ],
+  "socials": [
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/rishadrafeeq/" },
+    { "label": "GitHub", "url": "https://github.com/rishadrafeeq" },
+    { "label": "Instagram", "url": "https://www.instagram.com/rishadrafeeq" },
+    { "label": "Facebook", "url": "https://www.facebook.com/p/rishadrafeeq" },
+    { "label": "YouTube", "url": "https://youtube.com/@vfutures" }
+  ],
+  "skills": [
+    { "name": "HTML, CSS & Tailwind", "level": 92 },
+    { "name": "JavaScript / TypeScript", "level": 88 },
+    { "name": "React / Next.js", "level": 85 },
+    { "name": "Node.js & APIs", "level": 78 },
+    { "name": "Admin Panels & Dashboards", "level": 80 },
+    { "name": "Instagram Marketing & Lead Gen", "level": 82 }
+  ],
+  "projects": [
+    {
+      "id": "unico",
+      "title": "UNICO International",
+      "category": "Company",
+      "featured": true,
+      "client": "UNICO International Pvt Ltd",
+      "role": "Full-stack development · UI design",
+      "description": "Corporate website for an enterprise solutions company covering software development, AI consulting, data analytics, interior design and portfolio management — with event announcements and a careers section.",
+      "tags": ["Next.js", "Tailwind CSS", "Corporate", "Responsive"],
+      "image": "images/projects/unico.jpg",
+      "live": "https://unico-international.com/",
+      "github": ""
+    },
+    {
+      "id": "globalvision",
+      "title": "Global Vision UAE",
+      "category": "Company",
+      "featured": true,
+      "client": "Global Vision Business Hub, Dubai",
+      "role": "Web development · Lead generation",
+      "description": "Business-setup portal for Dubai: mainland, freezone and offshore company formation, visa and PRO services, with lead-capture forms, call-back requests and WhatsApp integration.",
+      "tags": ["Business Website", "Lead Gen", "SEO", "UAE"],
+      "image": "images/projects/globalvision.jpg",
+      "live": "https://globalvisionuae.com/",
+      "github": ""
+    },
+    {
+      "id": "vfutures",
+      "title": "VFUTURES",
+      "category": "My Product",
+      "featured": false,
+      "client": "",
+      "role": "Founder · Full-stack",
+      "description": "My own trading platform and community — trading journal, signals hub, academy, live market prices and live streams for 10K+ traders.",
+      "tags": ["Web App", "Next.js", "Vercel"],
+      "image": "images/projects/vfutures.jpg",
+      "live": "https://vfutures.vercel.app/",
+      "github": "https://github.com/rishadrafeeq/vfutures"
+    },
+    {
+      "id": "giesto",
+      "title": "GIESTO — Men's Fashion",
+      "category": "Client",
+      "featured": false,
+      "client": "",
+      "role": "Full-stack · Admin panel",
+      "description": "E-commerce store for a menswear brand with a full admin panel for products and categories, plus WhatsApp ordering.",
+      "tags": ["E-commerce", "Admin Panel", "Vercel"],
+      "image": "images/projects/giesto.jpg",
+      "live": "https://giesto.vercel.app/",
+      "github": "https://github.com/rishadrafeeq/GIESTO"
+    },
+    {
+      "id": "vfutures-ig",
+      "title": "VFUTURES Trade",
+      "category": "Social",
+      "featured": false,
+      "client": "",
+      "role": "Content & growth",
+      "description": "Instagram brand for VFUTURES — trading content, signals and community growth.",
+      "tags": ["Instagram", "Content"],
+      "image": "",
+      "live": "https://www.instagram.com/vfutures_trade",
+      "github": ""
+    },
+    {
+      "id": "enroute",
+      "title": "Enroute UAE — Visa Leads",
+      "category": "Social",
+      "featured": false,
+      "client": "",
+      "role": "Lead generation",
+      "description": "Instagram lead-generation page for UAE visa services.",
+      "tags": ["Instagram", "Lead Gen"],
+      "image": "",
+      "live": "https://www.instagram.com/enroute_uae",
+      "github": ""
+    },
+    {
+      "id": "vfutures-yt",
+      "title": "VFUTURES on YouTube",
+      "category": "Social",
+      "featured": false,
+      "client": "",
+      "role": "Creator",
+      "description": "YouTube channel with live trading sessions and market breakdowns.",
+      "tags": ["YouTube", "Live"],
+      "image": "",
+      "live": "https://youtube.com/@vfutures",
+      "github": ""
+    }
+  ],
+  "experience": [
+    { "period": "Present", "title": "Web Developer", "org": "UNICO International", "description": "Building the company website and digital solutions." },
+    { "period": "Present", "title": "Founder", "org": "VFUTURES", "description": "Built and run a trading platform, Instagram brand and YouTube channel." },
+    { "period": "Freelance", "title": "Web Developer", "org": "Client projects", "description": "Global Vision UAE, GIESTO e-commerce with admin panel, and Instagram lead generation." }
+  ],
+  "gallery": [],
+  "settings": {
+    "accent": "#c8ff3d",
+    "seoTitle": "Rishad Rafeeq — Full-Stack Web Developer",
+    "seoDescription": "Portfolio of Rishad Rafeeq: company websites, web apps and e-commerce projects.",
+    "showSkills": true,
+    "showExperience": true,
+    "showGallery": true
+  }
+}

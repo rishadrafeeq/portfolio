@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Portfolio Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css?v=2">
+</head>
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><b>RR</b><div><strong>Portfolio</strong><small>Admin panel</small></div></div>
+      <nav id="tabs">
+        <button data-tab="dashboard" class="on"><span>◧</span>Dashboard</button>
+        <button data-tab="profile"><span>☺</span>Profile</button>
+        <button data-tab="projects"><span>▦</span>Projects <em id="projCount"></em></button>
+        <button data-tab="skills"><span>≡</span>Skills</button>
+        <button data-tab="experience"><span>⌁</span>Experience</button>
+        <button data-tab="gallery"><span>▣</span>Gallery</button>
+        <button data-tab="socials"><span>⌘</span>Social links</button>
+        <button data-tab="settings"><span>⚙</span>Settings</button>
+        <button data-tab="github"><span>⇪</span>GitHub connection <em id="ghDot" class="dot"></em></button>
+      </nav>
+      <a class="view-site" href="../" target="_blank">View live site ↗</a>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-only" id="menuToggle" aria-label="Menu">☰</button>
+        <div class="status" id="status"><i></i><span>Loading…</span></div>
+        <div class="top-actions">
+          <button class="btn ghost" id="previewBtn" title="Preview unsaved changes">Preview</button>
+          <button class="btn ghost hide-sm" id="downloadBtn" title="Download content.json">Download JSON</button>
+          <button class="btn primary" id="publishBtn">Publish <kbd>Ctrl S</kbd></button>
+        </div>
+      </header>
+
+      <div id="draftBanner" class="banner" hidden>
+        <span>You have unpublished changes saved in this browser from <b id="draftTime"></b>.</span>
+        <div><button class="btn sm primary" id="restoreDraft">Restore</button><button class="btn sm ghost" id="discardDraft">Discard</button></div>
+      </div>
+
+      <main class="content" id="content">
+        <!-- DASHBOARD -->
+        <section data-panel="dashboard" class="panel on">
+          <div class="panel-head"><div><h1>Welcome back 👋</h1><p>Edit anything on your portfolio here, then press <b>Publish</b>. Your live site updates in about a minute.</p></div></div>
+          <div class="kpis" id="kpis"></div>
+          <div class="two">
+            <div class="card">
+              <h3>Quick actions</h3>
+              <div class="quick">
+                <button class="btn" data-go="projects" data-new>＋ Add new project</button>
+                <button class="btn" data-go="gallery">＋ Upload photos</button>
+                <button class="btn" data-go="profile">Edit profile & photo</button>
+                <button class="btn" data-go="settings">Change accent colour</button>
+              </div>
+            </div>
+            <div class="card">
+              <h3>How publishing works</h3>
+              <ol class="steps">
+                <li>Make your changes — they are saved in this browser automatically.</li>
+                <li>Click <b>Preview</b> to see them on the real design.</li>
+                <li>Click <b>Publish</b>. Changes and images are committed to your GitHub repo.</li>
+                <li>Vercel sees the commit and redeploys your site (≈ 1 min).</li>
+              </ol>
+              <p class="muted" id="ghHint"></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROFILE -->
+        <section data-panel="profile" class="panel">
+          <div class="panel-head"><div><h1>Profile</h1><p>Your name, intro, photos and contact details.</p></div></div>
+          <div class="card">
+            <h3>Photos</h3>
+            <div class="two">
+              <div class="img-field" data-image="profile.photo" data-label="Hero photo (portrait)"></div>
+              <div class="img-field" data-image="profile.aboutPhoto" data-label="About section photo"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Basics</h3>
+            <div class="form-grid">
+              <label>Full name<input data-path="profile.name"></label>
+              <label>Initials (logo)<input data-path="profile.initials" maxlength="3"></label>
+              <label class="full">Headline<input data-path="profile.headline"></label>
+              <label class="full">Roles <small>one per line — they type out in the hero</small><textarea data-path="profile.roles" data-type="lines" rows="3"></textarea></label>
+              <label class="full">About me<textarea data-path="profile.about" rows="6"></textarea></label>
+              <label>Location<input data-path="profile.location"></label>
+              <label class="toggle-row">Show "available" badge<input type="checkbox" data-path="profile.available"><span class="switch"></span></label>
+              <label class="full">Availability text<input data-path="profile.availableText"></label>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Contact</h3>
+            <div class="form-grid">
+              <label>Email<input type="email" data-path="profile.email" placeholder="you@example.com"></label>
+              <label>WhatsApp number<input data-path="profile.whatsapp" placeholder="+971 50 000 0000"></label>
+              <label class="full">Résumé / CV link<input data-path="profile.resume" placeholder="https://drive.google.com/…"></label>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Stats</h3><button class="btn sm" data-add="stats">＋ Add stat</button></div>
+            <div class="rows" data-list="stats"></div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section data-panel="projects" class="panel">
+          <div class="panel-head">
+            <div><h1>Projects</h1><p>Turn on <b>Featured</b> to show a project as a big case study in "Company projects". Change the order with ↑ ↓.</p></div>
+            <button class="btn primary" id="addProject">＋ New project</button>
+          </div>
+          <div class="toolbar">
+            <input type="search" id="projSearch" placeholder="Search projects…">
+            <select id="projFilter"><option value="">All categories</option></select>
+          </div>
+          <div class="proj-list" id="projList"></div>
+        </section>
+
+        <!-- SKILLS -->
+        <section data-panel="skills" class="panel">
+          <div class="panel-head"><div><h1>Skills</h1><p>Shown as animated bars.</p></div><button class="btn primary" data-add="skills">＋ Add skill</button></div>
+          <div class="card"><div class="rows" data-list="skills"></div></div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section data-panel="experience" class="panel">
+          <div class="panel-head"><div><h1>Experience</h1><p>Jobs, freelance work and education — top item shows first.</p></div><button class="btn primary" data-add="experience">＋ Add entry</button></div>
+          <div class="card"><div class="rows" data-list="experience"></div></div>
+        </section>
+
+        <!-- GALLERY -->
+        <section data-panel="gallery" class="panel">
+          <div class="panel-head"><div><h1>Gallery</h1><p>Photos are resized automatically. The section hides itself when empty.</p></div>
+            <label class="btn primary">＋ Upload photos<input type="file" id="galleryUpload" accept="image/*" multiple hidden></label></div>
+          <div class="gallery-grid" id="galleryList"></div>
+        </section>
+
+        <!-- SOCIALS -->
+        <section data-panel="socials" class="panel">
+          <div class="panel-head"><div><h1>Social links</h1><p>Shown in the contact section.</p></div><button class="btn primary" data-add="socials">＋ Add link</button></div>
+          <div class="card"><div class="rows" data-list="socials"></div></div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section data-panel="settings" class="panel">
+          <div class="panel-head"><div><h1>Settings</h1><p>Look & feel, sections and SEO.</p></div></div>
+          <div class="card">
+            <h3>Accent colour</h3>
+            <div class="swatches" id="swatches"></div>
+            <label class="inline">Custom<input type="color" data-path="settings.accent"></label>
+          </div>
+          <div class="card">
+            <h3>Sections</h3>
+            <label class="toggle-row">Show Skills<input type="checkbox" data-path="settings.showSkills"><span class="switch"></span></label>
+            <label class="toggle-row">Show Experience<input type="checkbox" data-path="settings.showExperience"><span class="switch"></span></label>
+            <label class="toggle-row">Show Gallery<input type="checkbox" data-path="settings.showGallery"><span class="switch"></span></label>
+          </div>
+          <div class="card">
+            <h3>SEO (Google & link previews)</h3>
+            <div class="form-grid">
+              <label class="full">Page title<input data-path="settings.seoTitle"></label>
+              <label class="full">Description<textarea data-path="settings.seoDescription" rows="2"></textarea></label>
+            </div>
+          </div>
+          <div class="card danger">
+            <h3>Backup</h3>
+            <p class="muted">Download a copy of all content, or restore one.</p>
+            <div class="quick">
+              <button class="btn" id="downloadBtn2">Download content.json</button>
+              <label class="btn">Import content.json<input type="file" id="importJson" accept="application/json" hidden></label>
+            </div>
+          </div>
+        </section>
+
+        <!-- GITHUB -->
+        <section data-panel="github" class="panel">
+          <div class="panel-head"><div><h1>GitHub connection</h1><p>Publishing saves your changes straight to your GitHub repo. Vercel redeploys automatically.</p></div></div>
+          <div class="card">
+            <div class="form-grid">
+              <label>GitHub username<input id="ghOwner" placeholder="rishadrafeeq"></label>
+              <label>Repository<input id="ghRepo" placeholder="portfolio"></label>
+              <label>Branch<input id="ghBranch" placeholder="main"></label>
+              <label>Folder in repo <small>leave empty if the site is at the repo root</small><input id="ghPath" placeholder=""></label>
+              <label class="full">Personal access token<input id="ghToken" type="password" autocomplete="off" placeholder="github_pat_…"></label>
+            </div>
+            <div class="quick" style="margin-top:16px">
+              <button class="btn primary" id="ghSave">Save & test connection</button>
+              <button class="btn ghost" id="ghForget">Forget token</button>
+            </div>
+            <p id="ghResult" class="muted"></p>
+          </div>
+          <div class="card">
+            <h3>How to create the token (one time)</h3>
+            <ol class="steps">
+              <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Settings → Fine-grained tokens → Generate new token</a>.</li>
+              <li>Repository access: <b>Only select repositories</b> → choose your portfolio repo.</li>
+              <li>Permissions → Repository permissions → <b>Contents: Read and write</b>.</li>
+              <li>Generate, copy the token and paste it above.</li>
+            </ol>
+            <p class="muted">The token is stored only in this browser (localStorage) and is sent only to api.github.com. Use “Forget token” on shared computers.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- PROJECT EDITOR -->
+  <div class="drawer-bg" id="drawerBg"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head"><h2 id="drawerTitle">Edit project</h2><button class="icon-btn" id="drawerClose" aria-label="Close">✕</button></div>
+    <form id="projForm" class="drawer-body">
+      <div class="img-field" data-image="__proj.image" data-label="Screenshot / cover image"></div>
+      <div class="form-grid">
+        <label class="full">Title *<input name="title" required></label>
+        <label>Category<input name="category" list="catList" placeholder="Company, Client, My Product…"><datalist id="catList"></datalist></label>
+        <label class="toggle-row">Featured case study<input type="checkbox" name="featured"><span class="switch"></span></label>
+        <label>Client / company<input name="client"></label>
+        <label>Your role<input name="role" placeholder="Full-stack development"></label>
+        <label class="full">Description<textarea name="description" rows="4"></textarea></label>
+        <label class="full">Tags <small>comma separated</small><input name="tags" placeholder="Next.js, Tailwind, Admin Panel"></label>
+        <label class="full">Live URL<input name="live" type="url" placeholder="https://…"></label>
+        <label class="full">GitHub URL<input name="github" type="url" placeholder="https://github.com/…"></label>
+      </div>
+    </form>
+    <div class="drawer-foot">
+      <button class="btn ghost danger-text" id="projDelete">Delete</button>
+      <div><button class="btn ghost" id="projCancel">Cancel</button><button class="btn primary" id="projSave">Save project</button></div>
+    </div>
+  </aside>
+
+  <div class="toasts" id="toasts"></div>
+  <script src="admin.js?v=2"></script>
+</body>
+</html>
