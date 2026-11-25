@@ -7,7 +7,7 @@
   <title>Portfolio Admin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="admin.css?v=3">
+  <link rel="stylesheet" href="admin.css?v=5">
 </head>
 <body>
   <div class="app">
@@ -132,7 +132,7 @@
 
         <!-- EXPERIENCE -->
         <section data-panel="experience" class="panel">
-          <div class="panel-head"><div><h1>Experience</h1><p>Jobs, freelance work and education — top item shows first.</p></div><button class="btn primary" data-add="experience">＋ Add entry</button></div>
+          <div class="panel-head"><div><h1>Work experience</h1><p>Formal jobs and internships only — top item shows first. Freelance and personal projects are added under <b>Projects</b> (choose “Show in Experience section”).</p></div><button class="btn primary" data-add="experience">＋ Add job</button></div>
           <div class="card"><div class="rows" data-list="experience"></div></div>
         </section>
 
@@ -223,6 +223,14 @@
         <label class="full">Title *<input name="title" required></label>
         <label>Category<input name="category" list="catList" placeholder="Company, Client, My Product…"><datalist id="catList"></datalist></label>
         <label class="toggle-row">Featured case study<input type="checkbox" name="featured"><span class="switch"></span></label>
+        <label class="full">Show in Experience section
+          <select name="section">
+            <option value="">No — show in the projects grid</option>
+            <option value="freelance">Freelance client projects</option>
+            <option value="personal">Personal projects</option>
+          </select>
+        </label>
+        <label class="full">Short summary <small>one line, used on Experience cards</small><input name="summary" maxlength="140"></label>
         <label>Client / company<input name="client"></label>
         <label>Your role<input name="role" placeholder="Full-stack development"></label>
         <label class="full">Description<textarea name="description" rows="4"></textarea></label>
@@ -238,6 +246,6 @@
   </aside>
 
   <div class="toasts" id="toasts"></div>
-  <script src="admin.js?v=3"></script>
+  <script src="admin.js?v=5"></script>
 </body>
 </html>

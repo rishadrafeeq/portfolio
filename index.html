@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body>
   <div id="loader"><span><i data-initial-1>R</i><i data-initial-2>R</i></span></div>
@@ -26,7 +26,7 @@
       <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span></button>
       <nav class="nav-links" id="navLinks">
         <a href="#work">Work</a>
-        <a href="#projects">Projects</a>
+        <a href="#projects" data-section="projects">Projects</a>
         <a href="#about">About</a>
         <a href="#experience" data-section="experience">Experience</a>
         <a href="#contact" class="cta">Let's talk</a>
@@ -65,7 +65,7 @@
             <div class="eyebrow">Selected work</div>
             <h2 class="sec-title split"><span class="line"><span>Company</span></span><span class="line"><span><span class="serif">projects</span></span></span></h2>
           </div>
-          <p class="reveal">Production websites I designed and developed end-to-end for real businesses.</p>
+          <p class="reveal">Production websites I worked on for real businesses.</p>
         </div>
         <div class="cases" id="cases"></div>
       </div>
@@ -117,11 +117,24 @@
       <div class="container">
         <div class="sec-head">
           <div>
-            <div class="eyebrow">Journey</div>
-            <h2 class="sec-title split"><span class="line"><span>Experience</span></span></h2>
+            <div class="eyebrow">Experience</div>
+            <h2 class="sec-title split"><span class="line"><span>Professional</span></span><span class="line"><span><span class="serif">experience</span></span></span></h2>
           </div>
         </div>
-        <div class="exp" id="expList"></div>
+        <div class="xp" id="xp">
+          <div class="xp-block" id="xpWork">
+            <div class="xp-label reveal"><span class="xp-num">01</span><h3>Work experience</h3></div>
+            <ol class="timeline" id="expList"></ol>
+          </div>
+          <div class="xp-block" id="xpFreelance">
+            <div class="xp-label reveal"><span class="xp-num">02</span><h3>Freelance client projects</h3></div>
+            <div class="mini-grid" id="freelanceList"></div>
+          </div>
+          <div class="xp-block" id="xpPersonal">
+            <div class="xp-label reveal"><span class="xp-num">03</span><h3>Personal projects</h3><p>My own projects and initiatives.</p></div>
+            <div class="mini-grid" id="personalList"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -159,6 +172,6 @@
 
   <div class="lightbox" id="lightbox"><img alt=""></div>
   <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" hidden></a>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>

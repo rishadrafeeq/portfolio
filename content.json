@@ -9,7 +9,7 @@
       "leading activities at VFUTURES & Enroute UAE"
     ],
     "headline": "Software developer with hands-on React.js experience and a working knowledge of financial markets.",
-    "about": "I'm a software developer focused on React.js and frontend development. As a Software Developer Intern at UNICO International (July – December 2025), I worked on the company's website, building responsive React.js pages and components. I have a working knowledge of financial markets, trading fundamentals and fintech concepts, and I currently manage and lead activities across VFUTURES and Enroute UAE, coordinating operations, social media and lead generation.",
+    "about": "I'm a software developer focused on React.js and frontend development. I worked as a Software Developer Intern at UNICO International (July – December 2025), building the company website in React.js, and in technical support at Quod Soft India, Kochi (April – August 2026). I have a working knowledge of financial markets, trading fundamentals and fintech concepts, and I manage and lead activities across VFUTURES and Enroute UAE, coordinating operations, social media and lead generation.",
     "location": "India",
     "available": true,
     "availableText": "Open to software development roles",
@@ -20,32 +20,80 @@
     "resume": ""
   },
   "stats": [
-    { "value": 6, "suffix": " mo", "label": "Software developer internship" },
-    { "value": 4, "suffix": "+", "label": "Live websites built" },
-    { "value": 2, "suffix": "", "label": "Ventures I help lead" }
+    {
+      "value": 2,
+      "suffix": "",
+      "label": "Professional roles"
+    },
+    {
+      "value": 4,
+      "suffix": "+",
+      "label": "Live websites built"
+    },
+    {
+      "value": 2,
+      "suffix": "",
+      "label": "Ventures I help lead"
+    }
   ],
   "socials": [
-    { "label": "WhatsApp", "url": "https://wa.me/917559068840" },
-    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/rishadrafeeq/" },
-    { "label": "GitHub", "url": "https://github.com/rishadrafeeq" },
-    { "label": "Instagram", "url": "https://www.instagram.com/rishadrafeeq" },
-    { "label": "Facebook", "url": "https://www.facebook.com/p/rishadrafeeq" }
+    {
+      "label": "WhatsApp",
+      "url": "https://wa.me/917559068840"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/rishadrafeeq/"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/rishadrafeeq"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/rishadrafeeq"
+    },
+    {
+      "label": "Facebook",
+      "url": "https://www.facebook.com/p/rishadrafeeq"
+    }
   ],
   "skillGroups": [
     {
       "title": "Technical skills",
       "note": "",
-      "items": ["React.js", "JavaScript", "HTML & CSS", "SQL / MySQL", "Python", "Linux", "Git & GitHub", "Debugging & technical support"]
+      "items": [
+        "React.js",
+        "JavaScript",
+        "HTML & CSS",
+        "SQL / MySQL",
+        "Python",
+        "Linux",
+        "Git & GitHub",
+        "Debugging & technical support"
+      ]
     },
     {
       "title": "Financial market knowledge",
       "note": "Relevant knowledge — not professional trading or financial-analyst experience.",
-      "items": ["Financial markets", "Trading fundamentals", "Forex & cryptocurrency markets", "Market structure", "Order flow fundamentals", "FIX Protocol (basic understanding)"]
+      "items": [
+        "Financial markets",
+        "Trading fundamentals",
+        "Forex & cryptocurrency markets",
+        "Market structure",
+        "Order flow fundamentals",
+        "FIX Protocol (basic understanding)"
+      ]
     },
     {
       "title": "Leadership & operations",
       "note": "From managing and leading activities at VFUTURES and Enroute UAE.",
-      "items": ["Team & activity coordination", "Operations management", "Social media & community", "Lead generation"]
+      "items": [
+        "Team & activity coordination",
+        "Operations management",
+        "Social media & community",
+        "Lead generation"
+      ]
     }
   ],
   "projects": [
@@ -57,10 +105,17 @@
       "client": "UNICO International · Software Developer Internship",
       "role": "Software Developer Intern — React.js frontend",
       "description": "Company website for an enterprise solutions provider (software development, AI consulting, data analytics and interior design). During my internship I worked on the website's frontend in React.js, building responsive pages and reusable components.",
-      "tags": ["React.js", "Next.js", "Tailwind CSS", "Responsive UI"],
+      "tags": [
+        "React.js",
+        "Next.js",
+        "Tailwind CSS",
+        "Responsive UI"
+      ],
       "image": "images/projects/unico.jpg",
       "live": "https://unico-international.com/",
-      "github": ""
+      "github": "",
+      "section": "",
+      "summary": ""
     },
     {
       "id": "globalvision",
@@ -70,23 +125,16 @@
       "client": "Global Vision Business Hub, Dubai",
       "role": "Web development",
       "description": "Business-setup website for Dubai covering mainland, freezone and offshore company formation and visa services, with lead-capture forms, call-back requests and WhatsApp integration.",
-      "tags": ["Business website", "Lead capture", "WhatsApp integration"],
+      "tags": [
+        "Business website",
+        "Lead capture",
+        "WhatsApp integration"
+      ],
       "image": "images/projects/globalvision.jpg",
       "live": "https://globalvisionuae.com/",
-      "github": ""
-    },
-    {
-      "id": "vfutures",
-      "title": "VFUTURES Web Platform",
-      "category": "Web App",
-      "featured": false,
-      "client": "",
-      "role": "Developer",
-      "description": "Trading-community web platform I built for VFUTURES: trading journal, signals hub, learning academy and live market prices.",
-      "tags": ["Web App", "React", "Vercel", "Fintech"],
-      "image": "images/projects/vfutures.jpg",
-      "live": "https://vfutures.vercel.app/",
-      "github": "https://github.com/rishadrafeeq/vfutures"
+      "github": "",
+      "section": "freelance",
+      "summary": "Business-setup website for a Dubai company, with lead-capture forms and WhatsApp integration."
     },
     {
       "id": "giesto",
@@ -96,23 +144,36 @@
       "client": "",
       "role": "Full-stack · Admin panel",
       "description": "E-commerce store for a menswear brand with an admin panel for products and categories, plus WhatsApp ordering.",
-      "tags": ["E-commerce", "Admin Panel", "Vercel"],
+      "tags": [
+        "E-commerce",
+        "Admin Panel",
+        "Vercel"
+      ],
       "image": "images/projects/giesto.jpg",
       "live": "https://giesto.vercel.app/",
-      "github": "https://github.com/rishadrafeeq/GIESTO"
+      "github": "https://github.com/rishadrafeeq/GIESTO",
+      "section": "freelance",
+      "summary": "E-commerce store for a menswear brand, with an admin panel and WhatsApp ordering."
     },
     {
-      "id": "vfutures-ig",
-      "title": "VFUTURES Trade",
-      "category": "Operations",
+      "id": "vfutures",
+      "title": "VFUTURES Web Platform",
+      "category": "Web App",
       "featured": false,
       "client": "",
-      "role": "Social media operations",
-      "description": "Instagram page for VFUTURES: trading education content and community updates.",
-      "tags": ["Instagram", "Community"],
-      "image": "",
-      "live": "https://www.instagram.com/vfutures_trade",
-      "github": ""
+      "role": "Developer",
+      "description": "Trading-community web platform I built for VFUTURES: trading journal, signals hub, learning academy and live market prices.",
+      "tags": [
+        "Web App",
+        "React",
+        "Vercel",
+        "Fintech"
+      ],
+      "image": "images/projects/vfutures.jpg",
+      "live": "https://vfutures.vercel.app/",
+      "github": "https://github.com/rishadrafeeq/vfutures",
+      "section": "personal",
+      "summary": "Trading-community web platform: journal, signals hub, academy and live prices."
     },
     {
       "id": "enroute",
@@ -122,10 +183,33 @@
       "client": "",
       "role": "Lead generation",
       "description": "Instagram lead-generation page for UAE visa services.",
-      "tags": ["Instagram", "Lead Gen"],
+      "tags": [
+        "Instagram",
+        "Lead Gen"
+      ],
       "image": "",
       "live": "https://www.instagram.com/enroute_uae",
-      "github": ""
+      "github": "",
+      "section": "personal",
+      "summary": "Instagram lead-generation page for UAE visa services."
+    },
+    {
+      "id": "vfutures-ig",
+      "title": "VFUTURES Trade",
+      "category": "Operations",
+      "featured": false,
+      "client": "",
+      "role": "Social media operations",
+      "description": "Instagram page for VFUTURES: trading education content and community updates.",
+      "tags": [
+        "Instagram",
+        "Community"
+      ],
+      "image": "",
+      "live": "https://www.instagram.com/vfutures_trade",
+      "github": "",
+      "section": "personal",
+      "summary": "Instagram page with trading education content and community updates."
     },
     {
       "id": "vfutures-yt",
@@ -135,30 +219,31 @@
       "client": "",
       "role": "Channel operations",
       "description": "YouTube channel with live trading sessions and market breakdowns.",
-      "tags": ["YouTube", "Content"],
+      "tags": [
+        "YouTube",
+        "Content"
+      ],
       "image": "",
       "live": "https://youtube.com/@vfutures",
-      "github": ""
+      "github": "",
+      "section": "personal",
+      "summary": "YouTube channel with live trading sessions and market breakdowns."
     }
   ],
   "experience": [
     {
-      "period": "Ongoing",
-      "title": "Leadership & operations",
-      "org": "VFUTURES & Enroute UAE",
-      "description": "Manage and lead day-to-day activities across both ventures\nCoordinate operations, social media and lead-generation work\nBuilt and maintain the VFUTURES web platform"
+      "period": "Apr 2026 — Aug 2026",
+      "title": "Technical Support",
+      "org": "Quod Soft India",
+      "location": "Kochi",
+      "description": ""
     },
     {
       "period": "Jul 2025 — Dec 2025",
       "title": "Software Developer Intern",
       "org": "UNICO International",
-      "description": "Worked on the company website (unico-international.com)\nBuilt responsive pages and reusable components in React.js\nFrontend development across the site"
-    },
-    {
-      "period": "Independent",
-      "title": "Web projects",
-      "org": "Client & personal work",
-      "description": "Global Vision UAE business-setup website\nGIESTO e-commerce store with an admin panel"
+      "location": "",
+      "description": "Frontend development of the company website with React.js."
     }
   ],
   "gallery": [],

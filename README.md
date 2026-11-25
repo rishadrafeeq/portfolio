@@ -11,6 +11,7 @@ Changes made in the admin panel are committed straight to this GitHub repo, and 
 **Portfolio site**
 - Premium dark design with a single accent colour (changeable from the admin panel)
 - Featured **company case studies** in browser-style frames, plus a filterable project grid
+- Professional experience in three clear categories: work-experience timeline, freelance client project cards, personal project cards
 - Skills grouped into cards (technical, financial-market knowledge, leadership & operations), each with an optional honesty note
 - Direct WhatsApp contact: hero button, contact button and a floating chat button (`wa.me` link)
 - Smooth animations: intro loader, line-by-line text reveals, scroll reveals, word-by-word "about" highlight, typing focus areas, animated counters

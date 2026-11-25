@@ -77,7 +77,8 @@
     // projects
     const projects = c.projects || [];
     const featured = projects.filter((x) => x.featured);
-    const rest = projects.filter((x) => !x.featured);
+    // Projects assigned to the Experience section (freelance / personal) are shown there instead of the grid.
+    const rest = projects.filter((x) => !x.featured && !x.section);
     $("#work").style.display = featured.length ? "" : "none";
 
     const browser = (x) => `
@@ -117,6 +118,7 @@
     };
 
     $("#projects").style.display = rest.length ? "" : "none";
+    $$('[data-section="projects"]').forEach((a) => (a.style.display = rest.length ? "" : "none"));
     $("#grid").innerHTML = rest.map((x) => `
       <article class="card reveal" data-cat="${esc(x.category)}">
         ${x.image ? `<a href="${esc(safeUrl(x.live))}" target="_blank" rel="noopener">${browser(x)}</a>` : art(x)}
@@ -160,12 +162,40 @@
       </div>`).join("");
 
     // experience
-    const showExp = s.showExperience !== false && c.experience?.length;
+    const work = c.experience || [];
+    const freelance = projects.filter((x) => x.section === "freelance");
+    const personal = projects.filter((x) => x.section === "personal");
+    const showExp = s.showExperience !== false && (work.length || freelance.length || personal.length);
     $("#experience").style.display = showExp ? "" : "none";
     $$('[data-section="experience"]').forEach((a) => (a.style.display = showExp ? "" : "none"));
-    $("#expList").innerHTML = (c.experience || []).map((x) => `
-      <div class="exp-row reveal"><span class="period">${esc(x.period)}</span>
-      <h4>${esc(x.title)}<small>${esc(x.org)}</small></h4>${lines(x.description)}</div>`).join("");
+
+    $("#xpWork").style.display = work.length ? "" : "none";
+    $("#expList").innerHTML = work.map((x) => `
+      <li class="tl-item reveal">
+        <span class="tl-period">${esc(x.period)}</span>
+        <h4>${esc(x.title)}</h4>
+        <p class="tl-org">${esc(x.org)}${x.location ? ` · ${esc(x.location)}` : ""}</p>
+        ${x.description ? `<p class="tl-desc">${esc(x.description.split("\n")[0])}</p>` : ""}
+      </li>`).join("");
+
+    const mini = (x) => {
+      const url = esc(safeUrl(x.live || x.github));
+      const media = x.image
+        ? `<div class="mini-img"><img src="${esc(safeUrl(x.image))}" alt="${esc(x.title)} preview" loading="lazy"></div>`
+        : `<div class="mini-img">${art(x)}</div>`;
+      return `
+      <a class="mini reveal" href="${url}" target="_blank" rel="noopener">
+        ${media}
+        <div class="mini-body">
+          <div class="mini-top"><h4>${esc(x.title)}</h4><span class="mini-arrow" aria-hidden="true">↗</span></div>
+          <p>${esc(x.summary || x.description)}</p>
+        </div>
+      </a>`;
+    };
+    $("#xpFreelance").style.display = freelance.length ? "" : "none";
+    $("#freelanceList").innerHTML = freelance.map(mini).join("");
+    $("#xpPersonal").style.display = personal.length ? "" : "none";
+    $("#personalList").innerHTML = personal.map(mini).join("");
 
     // gallery
     const gal = (c.gallery || []).filter((g) => g.src);
@@ -229,7 +259,7 @@
     }), { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
     $$(".reveal, .split").forEach((t) => {
       const sib = [...t.parentElement.children].filter((x) => x.classList.contains("reveal"));
-      if (t.classList.contains("card") || t.classList.contains("skill")) t.style.transitionDelay = (sib.indexOf(t) % 3) * 0.08 + "s";
+      if (["card", "skill-group", "mini", "tl-item"].some((k) => t.classList.contains(k))) t.style.transitionDelay = (sib.indexOf(t) % 3) * 0.08 + "s";
       io.observe(t);
     });
 

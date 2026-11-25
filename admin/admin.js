@@ -163,11 +163,12 @@
         <input data-k="url" value="${esc(x.url)}" placeholder="https://…">`,
     },
     experience: {
-      blank: () => ({ period: "", title: "", org: "", description: "" }),
-      row: (x) => `<input data-k="period" value="${esc(x.period)}" placeholder="2023 — Present">
-        <input data-k="title" value="${esc(x.title)}" placeholder="Job title / degree">
-        <input data-k="org" value="${esc(x.org)}" placeholder="Company / college">
-        <textarea data-k="description" rows="2" placeholder="What you did">${esc(x.description)}</textarea>`,
+      blank: () => ({ period: "", title: "", org: "", location: "", description: "" }),
+      row: (x) => `<input data-k="period" value="${esc(x.period)}" placeholder="Jan 2025 — Jun 2025">
+        <input data-k="title" value="${esc(x.title)}" placeholder="Job title">
+        <input data-k="org" value="${esc(x.org)}" placeholder="Company">
+        <input data-k="location" value="${esc(x.location)}" placeholder="City">
+        <input data-k="description" class="wide" value="${esc(x.description)}" placeholder="One short line about what you did (optional)">`,
     },
   };
 
@@ -275,7 +276,7 @@
       return `<div class="proj" data-i="${i}">
         <div class="pthumb" style="${src ? `background-image:url('${esc(src)}')` : ""}">${src ? "" : esc((p.title || "?").slice(0, 2))}</div>
         <div>
-          <h4>${esc(p.title || "Untitled")} ${p.featured ? '<span class="pill feat">★ Featured</span>' : ""} ${p.category ? `<span class="pill">${esc(p.category)}</span>` : ""}</h4>
+          <h4>${esc(p.title || "Untitled")} ${p.featured ? '<span class="pill feat">★ Featured</span>' : ""} ${p.category ? `<span class="pill">${esc(p.category)}</span>` : ""} ${p.section ? `<span class="pill sec">Experience · ${p.section === "freelance" ? "Freelance" : "Personal"}</span>` : ""}</h4>
           <p>${esc(p.description || "No description")}</p>
         </div>
         <div class="acts">
@@ -307,11 +308,11 @@
   function openProject(i) {
     state.editIndex = i;
     state.editing = i >= 0 ? structuredClone(state.c.projects[i]) :
-      { id: "", title: "", category: "", featured: false, client: "", role: "", description: "", tags: [], image: "", live: "", github: "" };
+      { id: "", title: "", category: "", featured: false, section: "", summary: "", client: "", role: "", description: "", tags: [], image: "", live: "", github: "" };
     $("#drawerTitle").textContent = i >= 0 ? "Edit project" : "New project";
     $("#projDelete").style.visibility = i >= 0 ? "visible" : "hidden";
     const f = $("#projForm");
-    ["title", "category", "client", "role", "description", "live", "github"].forEach((k) => (f.elements[k].value = state.editing[k] || ""));
+    ["title", "category", "section", "summary", "client", "role", "description", "live", "github"].forEach((k) => (f.elements[k].value = state.editing[k] || ""));
     f.elements.tags.value = (state.editing.tags || []).join(", ");
     f.elements.featured.checked = !!state.editing.featured;
     renderImageField($('#drawer [data-image]'));
@@ -329,7 +330,7 @@
     const title = f.elements.title.value.trim();
     if (!title) { f.elements.title.focus(); return toast("Please give the project a title.", true); }
     const p = state.editing;
-    ["title", "category", "client", "role", "description", "live", "github"].forEach((k) => (p[k] = f.elements[k].value.trim()));
+    ["title", "category", "section", "summary", "client", "role", "description", "live", "github"].forEach((k) => (p[k] = f.elements[k].value.trim()));
     p.tags = f.elements.tags.value.split(",").map((t) => t.trim()).filter(Boolean);
     p.featured = f.elements.featured.checked;
     for (const k of ["live", "github"]) if (p[k] && !/^https?:\/\//i.test(p[k])) p[k] = "https://" + p[k];

@@ -116,8 +116,8 @@ input[type=color] { width: 44px; height: 34px; border: 1px solid var(--line-2); 
 .row-skills { grid-template-columns: 1fr 160px 48px auto; }
 .row-stats { grid-template-columns: 110px 90px 1fr auto; }
 .row-socials { grid-template-columns: 160px 1fr auto; }
-.row-experience { grid-template-columns: 140px 1fr 1fr auto; }
-.row-experience textarea { grid-column: 1 / 4; }
+.row-experience { grid-template-columns: 160px 1fr 1fr 120px auto; }
+.row-experience .wide { grid-column: 1 / 5; }
 .row input[type=range] { width: 100%; accent-color: var(--ink); }
 .row .num { font-variant-numeric: tabular-nums; color: var(--muted); text-align: right; }
 .empty { padding: 32px; text-align: center; color: var(--muted); border: 1px dashed var(--line-2); border-radius: 12px; }
@@ -154,6 +154,7 @@ input[type=color] { width: 44px; height: 34px; border: 1px solid var(--line-2); 
 .proj h4 { font-size: 1rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .proj p { color: var(--muted); font-size: .86rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .pill { font-size: .7rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line-2); color: var(--muted); }
+.pill.sec { border-style: dashed; color: var(--text); }
 .pill.feat { background: var(--accent); color: var(--ink); border-color: var(--accent); }
 .proj .acts { display: flex; gap: 4px; }
 .proj .acts button { height: 34px; min-width: 34px; padding: 0 10px; border-radius: 8px; border: 1px solid var(--line-2); }
@@ -205,7 +206,7 @@ body.drawer-open .drawer-bg { opacity: 1; pointer-events: auto; }
   .row-skills input[type=range] { grid-column: 1 / -1; grid-row: 2; }
   .row-stats, .row-socials, .row-experience { grid-template-columns: 1fr 1fr; }
   .row-stats .acts, .row-socials .acts, .row-experience .acts { grid-column: 1 / -1; justify-content: flex-end; }
-  .row-socials input:nth-child(2), .row-stats input:nth-child(3), .row-experience textarea { grid-column: 1 / -1; }
+  .row-socials input:nth-child(2), .row-stats input:nth-child(3), .row-experience .wide { grid-column: 1 / -1; }
   .proj { grid-template-columns: 90px 1fr; }
   .proj .acts { grid-column: 1 / -1; justify-content: flex-end; }
   .toolbar { flex-direction: column; }
